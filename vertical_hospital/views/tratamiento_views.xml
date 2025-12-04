@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista de Formulario -->
+    <record id="view_hospital_tratamiento_form" model="ir.ui.view">
+        <field name="name">hospital.tratamiento.form</field>
+        <field name="model">hospital.tratamiento</field>
+        <field name="arch" type="xml">
+            <form string="Tratamiento">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codigo_tratamiento"/>
+                            <field name="nombre_tratamiento"/>
+                        </group>
+                        <group>
+                            <field name="medico_tratante"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de Lista (list) -->
+    <record id="view_hospital_tratamiento_tree" model="ir.ui.view">
+        <field name="name">hospital.tratamiento.list</field>
+        <field name="model">hospital.tratamiento</field>
+        <field name="arch" type="xml">
+            <list string="Tratamientos">
+                <field name="codigo_tratamiento"/>
+                <field name="nombre_tratamiento"/>
+                <field name="medico_tratante"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista de Búsqueda -->
+    <record id="view_hospital_tratamiento_search" model="ir.ui.view">
+        <field name="name">hospital.tratamiento.search</field>
+        <field name="model">hospital.tratamiento</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tratamientos">
+                <field name="codigo_tratamiento"/>
+                <field name="nombre_tratamiento"/>
+                <field name="medico_tratante"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción de Ventana -->
+    <record id="action_hospital_tratamiento" model="ir.actions.act_window">
+        <field name="name">Tratamientos</field>
+        <field name="res_model">hospital.tratamiento</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo tratamiento
+            </p>
+        </field>
+    </record>
+</odoo>

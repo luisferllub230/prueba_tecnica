@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_paciente" model="ir.actions.report">
+        <field name="name">Reporte de Pacientes</field>
+        <field name="model">hospital.paciente</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">vertical_hospital.report_paciente_document</field>
+        <field name="report_file">vertical_hospital.report_paciente_document</field>
+        <field name="binding_model_id" ref="model_hospital_paciente"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'Pacientes - %s' % (object.secuencia)</field>
+    </record>
+</odoo>

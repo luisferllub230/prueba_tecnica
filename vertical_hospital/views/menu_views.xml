@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_hospital_root"
+              name="Hospital"
+              sequence="10"
+              web_icon="vertical_hospital,static/description/icon.png"/>
+
+    <menuitem id="menu_hospital_pacientes"
+              name="Pacientes"
+              parent="menu_hospital_root"
+              action="action_hospital_paciente"
+              sequence="10"/>
+
+    <menuitem id="menu_hospital_tratamientos"
+              name="Tratamientos"
+              parent="menu_hospital_root"
+              action="action_hospital_tratamiento"
+              sequence="20"/>
+
+    <menuitem id="menu_hospital_configuracion"
+              name="Configuración"
+              parent="menu_hospital_root"
+              action="action_hospital_config_settings"
+              sequence="100"
+              groups="base.group_system"/>
+</odoo>
