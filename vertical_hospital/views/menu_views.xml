@@ -16,11 +16,4 @@
               parent="menu_hospital_root"
               action="action_hospital_tratamiento"
               sequence="20"/>
-
-    <menuitem id="menu_hospital_configuracion"
-              name="Configuración"
-              parent="menu_hospital_root"
-              action="action_hospital_config_settings"
-              sequence="100"
-              groups="base.group_system"/>
 </odoo>

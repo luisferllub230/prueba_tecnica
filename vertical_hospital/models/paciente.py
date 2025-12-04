@@ -87,6 +87,9 @@ class Paciente(models.Model):
         for record in self:
             if record.rnc and not record.rnc.isdigit():
                 raise ValidationError('El RNC no debe contener letras, solo números.')
+            
+            if record.rnc and len(rnc) > 11 or len(rnc) < 9:
+                raise ValidationError('El rnc del usuario debe de ser mayor a 8 digitos y menor a 11 digitos')
 
     def action_set_borrador(self):
         self.write({'estado': 'borrador'})

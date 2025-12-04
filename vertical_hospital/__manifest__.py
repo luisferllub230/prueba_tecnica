@@ -17,11 +17,11 @@
     'data': [
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
-        'views/menu_views.xml',
         'views/paciente_views.xml',
         'views/tratamiento_views.xml',
         'report/paciente_report.xml',
         'report/paciente_report_template.xml',
+        'views/menu_views.xml',
     ],
     'images': ['static/description/icon.png'],
 }

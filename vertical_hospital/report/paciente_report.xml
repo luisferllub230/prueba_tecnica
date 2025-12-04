@@ -2,36 +2,34 @@
 <odoo>
     <template id="report_paciente_document">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
-                    <div class="page">
-                        <h2>Reporte de Pacientes</h2>
-                        <table class="table table-sm table-bordered">
-                            <thead>
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Reporte de Pacientes</h2>
+                    <table class="table o_main_table table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Secuencia</th>
+                                <th>Nombre y Apellido</th>
+                                <th>RNC</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="paciente">
                                 <tr>
-                                    <th>Secuencia</th>
-                                    <th>Nombre y Apellido</th>
-                                    <th>RNC</th>
-                                    <th>Estado</th>
+                                    <td><span t-field="paciente.secuencia"/></td>
+                                    <td><span t-field="paciente.nombre_apellido"/></td>
+                                    <td><span t-field="paciente.rnc"/></td>
+                                    <td>
+                                        <span t-if="paciente.estado == 'borrador'">Borrador</span>
+                                        <span t-if="paciente.estado == 'alta'">Alta</span>
+                                        <span t-if="paciente.estado == 'baja'">Baja</span>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <t t-foreach="docs" t-as="paciente">
-                                    <tr>
-                                        <td><span t-field="paciente.secuencia"/></td>
-                                        <td><span t-field="paciente.nombre_apellido"/></td>
-                                        <td><span t-field="paciente.rnc"/></td>
-                                        <td>
-                                            <span t-if="paciente.estado == 'borrador'">Borrador</span>
-                                            <span t-if="paciente.estado == 'alta'">Alta</span>
-                                            <span t-if="paciente.estado == 'baja'">Baja</span>
-                                        </td>
-                                    </tr>
-                                </t>
-                            </tbody>
-                        </table>
-                    </div>
-                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
             </t>
         </t>
     </template>

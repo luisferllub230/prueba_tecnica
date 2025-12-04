@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from odoo import http
-from odoo.http import request
+from odoo.http import request, Controller, route
 import json
 
 
-class HospitalController(http.Controller):
+class HospitalController(Controller):
 
-    @http.route('/pacientes/consulta/<string:secuencia>', type='http', auth='public', methods=['GET'], csrf=False)
+    @route('/pacientes/consulta/<string:secuencia>', type='http', auth='public', methods=['GET'], csrf=False)
     def consulta_paciente(self, secuencia, **kwargs):
         """
         Endpoint REST para consultar un paciente por su secuencia
@@ -28,18 +27,11 @@ class HospitalController(http.Controller):
                     status=404
                 )
             
-            # Mapeo de estados
-            estado_map = {
-                'borrador': 'draft',
-                'alta': 'alta',
-                'baja': 'baja'
-            }
-            
             response = {
                 'seq': paciente.secuencia,
                 'name': paciente.nombre_apellido,
                 'rnc': paciente.rnc,
-                'state': estado_map.get(paciente.estado, paciente.estado)
+                'state': paciente.estado or "draft"
             }
             
             return request.make_response(
