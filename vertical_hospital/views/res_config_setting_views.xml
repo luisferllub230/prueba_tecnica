@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="res_config_settings_view_form_inherit_hospital" model="ir.ui.view">
-        <field name="name">res.config.settings.view.form.inherit.hospital</field>
         <field name="model">res.config.settings</field>
-        <field name="priority" eval="999"/>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
-                <app notApp="1" string="Hospital" data-string="Hospital" name="vertical_hospital">
+                <app string="Hospital" data-string="Hospital" name="vertical_hospital">
                     <block title="API Configuration" name="api_configuration_container">
                         <setting id="hospital_endpoint_setting" 
                                  help="Configure the REST API endpoint URL for patient validation"
                                  documentation="/apps/vertical_hospital/api_configuration">
-                            <div class="o_setting_left_pane">
-                                <field name="hospital_endpoint_url"/>
-                            </div>
-                            <div class="o_setting_right_pane">
+                             <div class="">
                                 <span class="o_form_label">Endpoint URL</span>
                                 <span class="fa fa-lg fa-cloud" title="API Configuration"/>
                                 <div class="text-muted">
                                     Set the base URL for the patient validation REST endpoint
                                 </div>
                                 <div class="content-group mt16">
-                                    <field name="hospital_endpoint_url" 
-                                           placeholder="e.g., https://api.hospital.com or http://localhost:8069"
-                                           class="oe_inline"/>
+                                    <field name="hospital_endpoint_url" placeholder="e.g., https://api.hospital.com or http://localhost:8069" class="oe_inline"/>
                                 </div>
                             </div>
-                            <div class="o_setting_left_pane"/>
+                            <div class=""/>
                         </setting>
                     </block>
                 </app>
@@ -38,9 +31,8 @@
     <record id="action_hospital_config_settings" model="ir.actions.act_window">
         <field name="name">Configuración del Hospital</field>
         <field name="res_model">res.config.settings</field>
-        <field name="view_id" ref="res_config_settings_view_form_inherit_hospital"/>
         <field name="view_mode">form</field>
         <field name="target">inline</field>
-        <field name="context">{'module': 'vertical_hospital'}</field>
+        <field name="context">{'module': 'vertical_hospital', 'bin_size': False}</field>
     </record>
 </odoo>
