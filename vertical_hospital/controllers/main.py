@@ -5,6 +5,10 @@ import json
 
 class HospitalController(Controller):
 
+    def _get_configured_endpoint(self):
+        """Obtener el endpoint configurado en los ajustes"""
+        return request.env['ir.config_parameter'].sudo().get_param('vertical_hospital.endpoint_url', '')
+
     @route('/pacientes/consulta/<string:secuencia>', type='http', auth='public', methods=['GET'], csrf=False)
     def consulta_paciente(self, secuencia, **kwargs):
         """

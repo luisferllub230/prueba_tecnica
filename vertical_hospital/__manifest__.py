@@ -19,6 +19,7 @@
         'data/ir_sequence_data.xml',
         'views/paciente_views.xml',
         'views/tratamiento_views.xml',
+        'views/res_config_setting_views.xml',
         'report/paciente_report.xml',
         'report/paciente_report_template.xml',
         'views/menu_views.xml',
